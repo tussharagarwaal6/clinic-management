@@ -1,0 +1,17 @@
+<div class="page-header">
+  <h1 class="page-title">Appointment Scheduler</h1>
+  <mat-form-field appearance="outline" class="doctor-select">
+    <mat-label>Select Doctor</mat-label>
+    <mat-select [value]="selectedDoctorId" (selectionChange)="onDoctorChange($event.value)">
+      @for (doctor of doctors; track doctor.id) {
+        <mat-option [value]="doctor.id">{{ doctor.name }} ({{ doctor.specialization }})</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<p class="helper-text">Click an empty slot to schedule. Click an event to edit, complete, cancel, or delete. Drag events to reschedule.</p>
+
+<div class="calendar-card">
+  <full-calendar #calendar [options]="calendarOptions" />
+</div>

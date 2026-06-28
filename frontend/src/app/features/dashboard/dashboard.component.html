@@ -1,0 +1,32 @@
+<h1 class="page-title">Admin Dashboard</h1>
+
+@if (stats) {
+  <div class="card-grid">
+    <div class="stat-card">
+      <div class="label"><mat-icon>medical_services</mat-icon> Doctors</div>
+      <div class="value">{{ stats.doctors }}</div>
+    </div>
+    <div class="stat-card">
+      <div class="label"><mat-icon>groups</mat-icon> Patients</div>
+      <div class="value">{{ stats.patients }}</div>
+    </div>
+    <div class="stat-card">
+      <div class="label"><mat-icon>event</mat-icon> Total Appointments</div>
+      <div class="value">{{ stats.appointments_total }}</div>
+    </div>
+    <div class="stat-card scheduled">
+      <div class="label"><mat-icon>schedule</mat-icon> Active (Scheduled)</div>
+      <div class="value">{{ stats.appointments_scheduled }}</div>
+    </div>
+    <div class="stat-card completed">
+      <div class="label"><mat-icon>check_circle</mat-icon> Completed</div>
+      <div class="value">{{ stats.appointments_completed }}</div>
+    </div>
+    <div class="stat-card cancelled">
+      <div class="label"><mat-icon>cancel</mat-icon> Cancelled</div>
+      <div class="value">{{ stats.appointments_cancelled }}</div>
+    </div>
+  </div>
+} @else {
+  <p>Loading dashboard...</p>
+}

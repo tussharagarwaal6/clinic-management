@@ -9,12 +9,14 @@ clinic-management/
 ├── docker-compose.yml    # PostgreSQL
 ├── .env                  # Environment variables
 ├── backend/              # Django REST API
-└── frontend/             # Angular (empty for now)
+└── frontend/             # Angular Material SPA
 ```
 
 ## Prerequisites
 
 - Python 3.11+
+- Node.js 18+ and npm
+- Angular CLI (`npm i -g @angular/cli`)
 - Docker Desktop
 - pip / virtualenv
 
@@ -47,6 +49,24 @@ python manage.py runserver
 ```
 
 The API runs at `http://127.0.0.1:8000/`.
+
+### 3. Frontend setup
+
+```bash
+cd frontend
+npm install
+npm start
+```
+
+The Angular app runs at `http://localhost:4200/`.
+
+**Default logins:**
+- Admin: `admin` / `admin123`
+- Doctor: email from doctor record / `pass123`
+
+**Role-based UI:**
+- **Admin** -> Dashboard, Doctor Management, Patient Management, Appointment Scheduler
+- **Doctor** -> My Appointments (read-only)
 
 ## API Documentation
 
@@ -126,6 +146,8 @@ Content-Type: application/json
 |--------|----------|-------------|
 | POST | `/api/auth/token/` | Login (JWT) |
 | POST | `/api/auth/token/refresh/` | Refresh JWT |
+| GET | `/api/auth/me/` | Current user role (admin/doctor) |
+| GET | `/api/dashboard/stats/` | Admin dashboard analytics (staff only) |
 | GET/POST | `/api/doctors/` | List / create doctors (staff only) |
 | GET/PUT/PATCH/DELETE | `/api/doctors/<id>/` | Doctor detail (staff only) |
 | GET/POST | `/api/patients/` | List / create patients (staff only) |

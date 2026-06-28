@@ -1,0 +1,46 @@
+.layout-container {
+  height: 100vh;
+}
+
+.sidebar {
+  width: 260px;
+  background: var(--color-surface);
+  border-right: 1px solid var(--color-border);
+}
+
+.sidebar-brand {
+  padding: 24px 16px 16px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.active-link {
+  background: #e8f2fa !important;
+  border-left: 4px solid var(--color-primary);
+}
+
+.logout-link {
+  margin-top: 8px;
+  color: var(--color-error);
+}
+
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.user-label {
+  font-size: 14px;
+}
+
+.content-area {
+  padding: 24px;
+  background: var(--color-bg);
+  min-height: calc(100vh - 64px);
+}

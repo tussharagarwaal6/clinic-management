@@ -1,0 +1,40 @@
+<h1 class="page-title">My Appointments</h1>
+
+<div class="table-card">
+  <table mat-table [dataSource]="appointments">
+    <ng-container matColumnDef="patient_name">
+      <th mat-header-cell *matHeaderCellDef>Patient</th>
+      <td mat-cell *matCellDef="let row">{{ row.patient_name }}</td>
+    </ng-container>
+    <ng-container matColumnDef="patient">
+      <th mat-header-cell *matHeaderCellDef>UHID</th>
+      <td mat-cell *matCellDef="let row">{{ row.patient }}</td>
+    </ng-container>
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef>Date</th>
+      <td mat-cell *matCellDef="let row">{{ row.date }}</td>
+    </ng-container>
+    <ng-container matColumnDef="time">
+      <th mat-header-cell *matHeaderCellDef>Time</th>
+      <td mat-cell *matCellDef="let row">{{ row.time }}</td>
+    </ng-container>
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef>Status</th>
+      <td mat-cell *matCellDef="let row">
+        <span [class]="statusClass(row.status)">{{ row.status }}</span>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let row">
+        @if (row.status === 'Scheduled') {
+          <button mat-stroked-button color="primary" (click)="markCompleted(row)">
+            <mat-icon>check_circle</mat-icon> Complete
+          </button>
+        }
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>

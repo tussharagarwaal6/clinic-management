@@ -8,6 +8,8 @@ from drf_spectacular.views import (
 from rest_framework.permissions import AllowAny
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
+from clinic.views import DashboardStatsView, MeView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path(
@@ -27,5 +29,7 @@ urlpatterns = [
     ),
     path('api/auth/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/auth/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('api/auth/me/', MeView.as_view(), name='me'),
+    path('api/dashboard/stats/', DashboardStatsView.as_view(), name='dashboard-stats'),
     path('api/', include('clinic.urls')),
 ]

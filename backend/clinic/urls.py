@@ -3,6 +3,7 @@ from rest_framework.routers import DefaultRouter
 
 from .views import (
     AppointmentViewSet,
+    DoctorCompleteAppointmentView,
     DoctorMyAppointmentsView,
     DoctorViewSet,
     PatientViewSet,
@@ -15,5 +16,10 @@ router.register(r'appointments', AppointmentViewSet, basename='appointment')
 
 urlpatterns = [
     path('doctor/appointments/', DoctorMyAppointmentsView.as_view(), name='doctor-my-appointments'),
+    path(
+        'doctor/appointments/<int:pk>/complete/',
+        DoctorCompleteAppointmentView.as_view(),
+        name='doctor-complete-appointment',
+    ),
     path('', include(router.urls)),
 ]
