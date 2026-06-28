@@ -1,5 +1,5 @@
-// This file is overwritten by the Dockerfile ARG substitution
+// This file is overwritten by the Dockerfile ARG substitution when building the Docker image
 export const environment = {
   production: true,
-  apiBaseUrl: 'BACKEND_API_URL_PLACEHOLDER',
+  apiBaseUrl: 'https://worthy-cat-production-731c.up.railway.app/api',
 };
